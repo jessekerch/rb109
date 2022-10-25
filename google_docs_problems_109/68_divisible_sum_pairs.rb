@@ -37,12 +37,12 @@ return count of selected pairs
 =end
 
 # Coding v1
-# def divisible_sum_pairs(arr, div)
-#   pairs = []
-#   arr.permutation(2) { |pair| pairs << pair }
-#   pairs = pairs.select { |pair| (pair.sum) % div == 0 && pair[0] < pair[1] }
-#   pairs.count
-# end
+def divisible_sum_pairs(arr, div)
+  pairs = []
+  arr.permutation(2) { |pair| pairs << pair }
+  pairs = pairs.select { |pair| (pair.sum) % div == 0 && pair[0] < pair[1] }
+  pairs.count
+end
 
 #Coding v2
 def divisible_sum_pairs(arr, div)
@@ -57,10 +57,16 @@ def divisible_sum_pairs(arr, div)
   pairs.count
 end
 
+# def divisible_sum_pairs(arr, k)
+#   all_pairs = []
+#   arr.combination(2).to_a.each { |curr_pair| all_pairs << curr_pair }
+#   all_pairs.select{ |curr_pair| curr_pair.sum % k == 0 }.count
+# end
+
 p divisible_sum_pairs([1, 3, 2, 6, 1, 2], 3) == 5
 p divisible_sum_pairs([8, 10], 2) == 1
 p divisible_sum_pairs([5, 9, 10, 7, 4], 2) == 4
 p divisible_sum_pairs([29, 97, 52, 86, 27, 89, 77, 19, 99, 96], 3) == 15
-p divisible_sum_pairs([43, 95, 51, 55, 40, 86, 65, 81, 51, 20, 47, 50, 65, 53, 23, 78, 75, 75, 47, 73, 25, 27, 14, 8, 26, 58, 95, 28, 3, 23, 48, 69, 26, 3, 73, 52, 34, 7, 40, 33, 56, 98, 71, 29, 70, 71, 28, 12, 18, 49, 19, 25, 2, 18, 15, 41, 51, 42, 46, 19, 98, 56, 54, 98, 72, 25, 16, 49, 34, 99, 48, 93, 64, 44, 50, 91, 44, 17, 63, 27, 3, 65, 75, 19, 68, 30, 43, 37, 72, 54, 82, 92, 37, 52, 72, 62, 3, 88, 82, 71], 22) #== 216
+p divisible_sum_pairs([43, 95, 51, 55, 40, 86, 65, 81, 51, 20, 47, 50, 65, 53, 23, 78, 75, 75, 47, 73, 25, 27, 14, 8, 26, 58, 95, 28, 3, 23, 48, 69, 26, 3, 73, 52, 34, 7, 40, 33, 56, 98, 71, 29, 70, 71, 28, 12, 18, 49, 19, 25, 2, 18, 15, 41, 51, 42, 46, 19, 98, 56, 54, 98, 72, 25, 16, 49, 34, 99, 48, 93, 64, 44, 50, 91, 44, 17, 63, 27, 3, 65, 75, 19, 68, 30, 43, 37, 72, 54, 82, 92, 37, 52, 72, 62, 3, 88, 82, 71], 22) == 216
 # WTF, why doesn't this long test case work? Supposed to get 216 but keep getting 215...
 
